@@ -15,5 +15,6 @@ public class LightSource : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position + new Vector3(0, 2.5f, 0);
+        transform.rotation = player.transform.rotation;
     }
 }
