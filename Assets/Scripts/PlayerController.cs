@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float rotateSpeed = 250f; 
-    [SerializeField] bool isGround = false;
+    [SerializeField] bool isGround = true;
     [SerializeField] float jumpForce = 2500f;
     Rigidbody rigidBody;
 
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
        if (Input.GetKeyDown("space") && isGround == true) {
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGround = false;
        }
     }
 
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
         {
             isGround = true; 
         }
-        if (other.tag == "Endpoint") {
+        else if (other.tag == "Endpoint") {
             Invoke("LoadNextLevel", 2f);
         }   
     }
