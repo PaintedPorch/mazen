@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,5 +38,13 @@ public class PlayerController : MonoBehaviour
         {
             isGround = true; 
         }
+        if (other.tag == "Endpoint") {
+            Invoke("LoadNextLevel", 2f);
+        }   
+    }
+
+    void LoadNextLevel()
+    {
+        SceneManager.LoadScene("Level1");
     }
 }
