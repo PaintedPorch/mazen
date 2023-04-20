@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Endpoint
+  - Tripwire
   layers:
   - Default
   - TransparentFX
