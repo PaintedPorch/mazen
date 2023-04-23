@@ -13,6 +13,8 @@ public class SpikematMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Move spikes up on trigger
+        
     }
+
+    // Move spikes up on trigger
 }
