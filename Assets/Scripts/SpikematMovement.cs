@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class SpikematMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   PlayerController playerController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   private void Start() {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+   }
 
-    // Move spikes up on trigger
+   private void Update() {
+        if (playerController.tripWireActivated) {
+            StartCoroutine(MoveUpAndDown());
+        }
+   }
+
+   IEnumerator MoveUpAndDown() {
+        yield return new WaitForSeconds(2);
+        gameObject.transform.position = transform.position + new Vector3(0, .0015f, 0);
+        yield return new WaitForSeconds(2);
+        gameObject.transform.position = transform.position - new Vector3(0, .0015f, 0);
+   }
 }

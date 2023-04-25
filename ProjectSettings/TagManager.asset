@@ -12,6 +12,7 @@ TagManager:
   - Spikemat
   - Tripwire
   - Enemy
+  - Spike
   layers:
   - Default
   - TransparentFX
