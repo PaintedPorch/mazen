@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isGround = true;
     [SerializeField] float jumpForce = 2500f;
     Rigidbody rigidBody;
-    public bool tripWireActivated = false;
+    public bool matTripWireActivated = false;
+    public bool ballTripWireActivated = false;
     public bool gameOver = false;
     Light lightIntensity;
 
@@ -57,6 +58,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(TempActivate());
         }
 
+        if (other.tag == "Tripwire_Spikeball") {
+            ballTripWireActivated = true;
+        }
+
         if (other.tag == "Spike") {
             gameOver = true;
         }
@@ -68,8 +73,8 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator TempActivate() {
-        tripWireActivated = true;
+        matTripWireActivated = true;
         yield return new WaitForSeconds(2);
-        tripWireActivated = false;
+        matTripWireActivated = false;
     }
 }
