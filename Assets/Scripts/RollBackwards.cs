@@ -7,10 +7,14 @@ public class RollBackwards : MonoBehaviour
     Rigidbody ballRb;
     float moveSpeed = .02f;
     PlayerController playerController;
+    GameObject spikeBall;
+    SpawnManager spawnManager;
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        ballRb = gameObject.GetComponent<Rigidbody>();
+        spawnManager = GameObject.Find("SpawnManagers").GetComponent<SpawnManager>();
+        spikeBall = GameObject.Find("Spikeball");
+        ballRb = spikeBall.GetComponent<Rigidbody>();
     }
 
     void Update() 
@@ -24,12 +28,10 @@ public class RollBackwards : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        if (other.tag == "Tripwire_Spikeball")
-        {
-            playerController.ballTripWireActivated = true;
-        }
-        if (other.tag == "BallBarrier") {
+        if (other.tag == "Barrier") {
             Destroy(gameObject);
+            playerController.ballTripWireActivated = false;
+            spawnManager.spawnedSpikeBallCount = 0;
         }
     }
 }

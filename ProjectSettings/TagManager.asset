@@ -13,6 +13,8 @@ TagManager:
   - Tripwire
   - Enemy
   - Spike
+  - Barrier
+  - SpawnManager
   layers:
   - Default
   - TransparentFX
