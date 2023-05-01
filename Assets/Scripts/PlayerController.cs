@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             isGround = true; 
         }
         else if (other.tag == "Endpoint") {
-            Invoke("LoadNextLevel", 2f);
+            Invoke("LoadNextLevel", 1f);
         }   
 
         if (other.tag == "Tripwire_Spikemat") {

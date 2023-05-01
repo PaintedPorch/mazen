@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject player;
+    Vector3 distanceToPlayer;
+    float speed = .005f;
+
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        distanceToPlayer = player.transform.position - transform.position;
+        transform.Translate(distanceToPlayer * speed);
+        transform.rotation = player.transform.rotation;
     }
 }
